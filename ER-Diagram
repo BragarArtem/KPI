@@ -69,4 +69,3 @@ erDiagram
 	Category ||--o{ RecipeItemQuantity : "contains"
 	Recipe ||--|{ RecipeTaste : "contains"
 	Taste ||--o{ RecipeTaste : "taste"
-```
