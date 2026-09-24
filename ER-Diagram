@@ -50,8 +50,7 @@ erDiagram
 		int RecipeID FK
 		int TasteID FK
 		string Intensity
-	}
-		
+	}	
 	Order ||--|{ ItemQuantity : "contains"
 	Ingredient ||--o{ ItemQuantity : "contains"
 	Customer ||--o{ Order : "places"
@@ -60,3 +59,4 @@ erDiagram
 	Category ||--o{ RecipeItemQuantity : "contains"
 	Recipe ||--|{ RecipeTaste : "contains"
 	Taste ||--o{ RecipeTaste : "taste"
+```
