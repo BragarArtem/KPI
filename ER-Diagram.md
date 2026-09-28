@@ -4,20 +4,21 @@ erDiagram
         int OrderID PK
         int CustomerID FK
         date OrderDate
-        float TotalAmount
+        decimal TotalAmount
 	}
 	ItemQuantity{
 		int ItemQuantityID PK
 		int OrderID FK
         int IngredientID FK
 		int Quantity
-		float PriceAtOrder
+		decimal PriceAtOrder
 	}
 	Ingredient{
 		int IngredientID PK
 		int CategoryID FK
 		string Name
-		float Price
+		decimal Price
+		decimal PackSize
 	}
 	Customer{
 		int CustomerID PK
@@ -39,7 +40,7 @@ erDiagram
 		int RecipeItemQuantityID PK
 		int RecipeID FK
 		int CategoryID FK
-		int RecipeItemAmount	
+		decimal RecipeItemAmount	
 	}
 	Taste{
 		int TasteID PK
