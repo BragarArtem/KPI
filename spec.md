@@ -10,7 +10,7 @@
 - **Customer** (CustomerID PK, UserName, Address, PhoneNumber): оформлює 0..N Order.
 - **Order** (OrderID PK, CustomerID FK, OrderDate, TotalAmount): належить рівно одному Customer, містить 1..N ItemQuantity.
 - **ItemQuantity** (ItemQuantityID PK, OrderID FK, IngredientID FK, Quantity, PriceAtOrder): асоціативна сутність між Order і Ingredient, належить одному Order і одному Ingredient.
-- **Ingredient** (IngredientID PK, CategoryID FK, Name, Price): товар на складі, належить одній Category, входить у 0..N ItemQuantity.
+- **Ingredient** (IngredientID PK, CategoryID FK, Name, Price, PackSize): товар на складі, належить одній Category, входить у 0..N ItemQuantity.
 - **Category** (CategoryID PK, Name, Unit): група товарів, містить 0..N Ingredient, використовується в 0..N RecipeItemQuantity.
 - **Recipe** (RecipeID PK, Name, EquipmentNote): має 1..N RecipeItemQuantity і 1..N RecipeTaste.
 - **RecipeItemQuantity** (RecipeItemQuantityID PK, RecipeID FK, CategoryID FK, RecipeItemAmount): асоціативна сутність між Recipe і Category, кількість у одиницях Category.Unit.
@@ -29,3 +29,6 @@ Order і Recipe не пов'язані свідомо.
 6. Усі атрибути атомарні (1NF), смаки й категорії винесені в окремі сутності.
 7. Unit зберігається тільки в Category. PriceAtOrder і TotalAmount є знімками на момент замовлення, Ingredient.Price є поточною ціною.
 8. Назви сутностей і полів у spec.md збігаються з діаграмою символ у символ.
+9. Кожен Ingredient має PackSize (розмір фасування) в одиницях своєї Category.Unit.
+10. RecipeItemAmount є десятковим числом, грошові поля мають один і той самий десятковий тип.
+11. Intensity набуває значень лише з фіксованого переліку: слабо, помірно, сильно.
